@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    background-color: #470707;
+}
+
+header {
+    text-align: center;
+    background-color: whitesmoke;
+    width: 800px;
+    max-width: 80%;
+    font-size: 36px;
+    margin: 10px 36px;
+    padding: 36px;
+    border-radius: 5px;
+}
+
+h1 {
+    margin-bottom: 32px;
+}
+
+#container {
+    text-align: center;
+    width: 800px;
+    max-width: 80%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 72px;
+    box-shadow: 0 0 10px 2px;
+    font-size: 36px;
+}
+
+.hide {
+    display: none;
+}
+
+.starter-button {
+    font-size: 24px;
+    padding: 5px 10px;
+    margin: 16px;
+    border-radius: 5px;
+    background-color: #470707;
+    color: whitesmoke;
+}
+
+.starter-button:hover {
+    cursor: pointer; 
+    border: 2px solid black;
+    opacity: 0.8;
+}
+
+.starter-button:active {
+    box-shadow: 0 0 36px black inset;
+}
+
+#question {
+    font-weight: bold;
+}
+
+.answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.button {
+    border: 1px solid black;
+    background-color: #470707;
+    border-radius: 5px;
+    outline: none;
+    color: whitesmoke;
+    padding: 5px 10px;
+}
+
+.button:hover {
+    cursor: pointer; 
+    border: 1px solid black;
+    opacity: 0.8;
+}
+
+.button:active {
+    box-shadow: 0 0 36px black inset;
+}
+
+.time-display {
+    font-size: 72px;
+}
+
+.timer {
+    /* position: absolute; */
+    text-align: center;
+    width: 600px;
+    max-width: 50%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin: 10px 36px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    font-size: 36px;
+}
+
+.score-container {
+    text-align: center;
+    width: 800px;
+    max-width: 80%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 36px;
+    box-shadow: 0 0 10px 2px;
+    font-size: 36px;
+}
+
+.reset-button {
+    font-size: 24px;
+    padding: 5px 10px;
+    margin: 16px;
+    border-radius: 5px;
+    background-color: #470707;
+    color: whitesmoke;
+}
+
+.reset-button:hover {
+    cursor: pointer; 
+    border: 2px solid black;
+    opacity: 0.8;
+}
+
+.reset-button:active {
+    box-shadow: 0 0 36px black inset;
+}
