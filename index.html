@@ -11,35 +11,28 @@
 </head>
 
 <body>
-    <header>
+    <header class="wrapper">
         <h1>Avengers Quiz</h1>
         <button id="start" class="starter-button">Start the Game</button>
+        <button id="scores-button" class="high-score-button">High Scores</button>
         <section id="container" class="hide">
             <div>
                 <div id="question">Question</div>
-                <div id="buttons" class="answer-buttons">
-                    <!-- <button class="button">1st Answer</button> -->
-                    <!-- <button class="button">2nd Answer</button> -->
-                    <!-- <button class="button">3rd Answer</button> -->
-                    <!-- <button class="button">4th Answer</button> -->
-                </div>
+                <div id="buttons" class="answer-buttons"></div>
             </div>
         </section>
     </header>
-    <section id="timer" class="timer">
+    <section id="timer" class="timer hide">
     <div>
-        <div class="time-display">10</div>
+        <div id="time-display" class="time-display">50</div>
         <h3>seconds remaining</h3>
     </div>
     </section> 
-    <section class="score-container" id="score-container">
-        <div class="score">
-            <h2>Wins: </h2>
-            <h2>Loss: </h2>
-        </div>
-        <button class="reset-button">Reset</button>
-    </section>
-    
-</body>
 
+    <section id="high-score-input" class="high-score hide">
+        <h2>Enter Your Name</h2>
+        <input type="text" placeholder="enter your name" id="high-score">
+        <button id="submit-high-score" class="button">Submit High Score</button>        
+    </section>    
+</body>
 </html>
