@@ -77,7 +77,7 @@ var answers = questions.answers;
 // setting the index for question to 0 so the loop can add the question to it
 var questionIndex = 0;
 // setting timer
-var timeLeft = 100;
+var timeLeft = 5;
 var timeCount;
 
 // rendering the scores
@@ -159,7 +159,7 @@ function selectedAnswer(event) {
    if (questionIndex !== questions.length) {
        startGame();
    } else {
-       timeLeft = 0;
+
        alert("Game Over! Your score is : " + timeLeft);
        clearInterval(timeCount);
        endGame();    
