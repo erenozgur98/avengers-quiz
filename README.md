@@ -9,7 +9,7 @@
 ## Description
 ---
 
-This is a challening Avengers Quiz created with HTML, CSS and JavaScript! It let's you play the game until you win or the time ends, everytime you choose a wrong answer it's going to take away 10 seconds away and at the end of the game the remaining time will be your score. 
+This is a challening Avengers Quiz created with HTML, CSS and JavaScript! It let's you play the game until you win or the time ends, everytime you choose a wrong answer it's going to take away 10 seconds away and at the end of the game the remaining time will be your score. It let's you keep the scores even you refresh the page or close your browser and re-open it.
 
 Deployed Project: https://erenozgur98.github.io/avengers-quiz
 

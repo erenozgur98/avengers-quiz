@@ -13,6 +13,42 @@ var clearBtn = document.getElementById("clear-score");
 var scoreList = document.getElementById("score-list");
 var highScoreBtn = document.getElementById("scores-button")
 
+// the if statements are checking if the buttons pressed or not, or else it would create errors
+
+if (highScoreBtn) {
+    highScoreBtn.addEventListener("click", function() {
+        window.location.assign("highscores.html")
+    })
+}
+
+if (submitBtn) {
+    submitBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        score();
+        renderScore();
+        window.location.assign("highscores.html");
+    });
+}
+
+if (restartBtn) {
+    restartBtn.addEventListener("click", function() {
+        window.location.assign("index.html");
+    });
+};
+
+if (clearBtn) {
+    clearBtn.addEventListener("click", function() {
+        localStorage.clear();
+        scoreList.innerHTML = "";
+    });
+};
+
+if (starterBtn) {
+    starterBtn.addEventListener("click", function () {
+        startGame();
+        timer();    
+    });
+}
 
 
 // questions array
@@ -42,6 +78,7 @@ var answers = questions.answers;
 var questionIndex = 0;
 // setting timer
 var timeLeft = 100;
+var timeCount;
 
 // rendering the scores
 function renderScore() {
@@ -85,7 +122,7 @@ function score() {
 }
 
 // function when game ends
-function gameOver() {
+function endGame() {
     containerEl.classList.add("hide");
     hiddenTimerEl.classList.add("hide");
     inputEl.classList.remove("hide");
@@ -94,16 +131,20 @@ function gameOver() {
 
 // the timer function
 function timer() {
-    time = setInterval(function () {
+    timeCount = setInterval(function () {
         timeLeft--;
         timeEl.textContent = timeLeft;
 
-        if(time <= 0) {
-            clearInterval(time);
-            containerEl.classList.add("hide");
+        if (timeLeft <= 0) {
+            if (timeLeft <= 0) {
+                timeLeft = 0;
+            }
             alert("Time's up! Your score is : " + timeLeft);
-        }
-
+            containerEl.classList.add("hide");
+            clearInterval(timeCount);
+            endGame();
+        };
+        
     }, 1000) 
 }
 
@@ -118,9 +159,10 @@ function selectedAnswer(event) {
    if (questionIndex !== questions.length) {
        startGame();
    } else {
+       timeLeft = 0;
        alert("Game Over! Your score is : " + timeLeft);
-       clearInterval(time);
-       gameOver();    
+       clearInterval(timeCount);
+       endGame();    
    }
 }
 
@@ -143,42 +185,6 @@ function startGame() {
     
 }
 
-// the if statements are checking if the buttons pressed or not, or else it would create errors
-
-if (highScoreBtn) {
-    highScoreBtn.addEventListener("click", function() {
-        window.location.assign("highscores.html")
-    })
-}
-
-if (submitBtn) {
-    submitBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        score();
-        renderScore();
-        window.location.assign("highscores.html");
-    });
-}
-
-if (restartBtn) {
-    restartBtn.addEventListener("click", function() {
-        window.location.assign("index.html");
-    });
-};
-
-if (clearBtn) {
-    clearBtn.addEventListener("click", function() {
-        localStorage.clear();
-        scoreList.innerHTML = "";
-    });
-};
-
-if (starterBtn) {
-    starterBtn.addEventListener("click", function () {
-        startGame();
-        timer();    
-    });
-}
 
 
 function init() {
