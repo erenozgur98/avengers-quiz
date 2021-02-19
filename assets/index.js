@@ -77,7 +77,7 @@ var answers = questions.answers;
 // setting the index for question to 0 so the loop can add the question to it
 var questionIndex = 0;
 // setting timer
-var timeLeft = 5;
+var timeLeft = 100;
 var timeCount;
 
 // rendering the scores
