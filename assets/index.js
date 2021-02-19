@@ -1,15 +1,3 @@
-// GIVEN I am taking a code quiz  +
-// WHEN I click the start button  +
-// THEN a timer starts and I am presented with a question  +
-// WHEN I answer a question  +
-// THEN I am presented with another question  +
-// WHEN I answer a question incorrectly  +
-// THEN time is subtracted from the clock  +
-// WHEN all questions are answered or the timer reaches 0  +
-// THEN the game is over  +
-// WHEN the game is over  +
-// THEN I can save my initials and my score
-
 // html dom
 var starterBtn = document.getElementById("start");
 var containerEl = document.getElementById("container");
@@ -53,8 +41,9 @@ var answers = questions.answers;
 // setting the index for question to 0 so the loop can add the question to it
 var questionIndex = 0;
 // setting timer
-var timeLeft = 50;
+var timeLeft = 100;
 
+// rendering the scores
 function renderScore() {
     if (scoreList) {
         var listScores = [];
@@ -75,7 +64,7 @@ function renderScore() {
 }
 
 
-
+// setting the scores to localstorage
 function score() {
     var scores = [];
 
@@ -95,6 +84,7 @@ function score() {
     renderScore();
 }
 
+// function when game ends
 function gameOver() {
     containerEl.classList.add("hide");
     hiddenTimerEl.classList.add("hide");
@@ -117,7 +107,7 @@ function timer() {
     }, 1000) 
 }
 
-
+// checking to see if the questions is true or not
 function selectedAnswer(event) {
    if (event.target.textContent !== questions[questionIndex].correct) {
        timeLeft -= 10;
@@ -134,6 +124,7 @@ function selectedAnswer(event) {
    }
 }
 
+// starting the game
 function startGame() {
     starterBtn.classList.add("hide");
     highScoreBtn.classList.add("hide");
@@ -151,6 +142,8 @@ function startGame() {
     }
     
 }
+
+// the if statements are checking if the buttons pressed or not, or else it would create errors
 
 if (highScoreBtn) {
     highScoreBtn.addEventListener("click", function() {
