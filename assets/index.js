@@ -1,17 +1,17 @@
 // html dom
-var starterBtn = document.getElementById("start");
-var containerEl = document.getElementById("container");
-var questionEl = document.getElementById("question");
-var answerEl = document.getElementById("buttons");
-var timeEl = document.getElementById("time-display");
-var hiddenTimerEl = document.getElementById("timer");
-var inputEl = document.getElementById("high-score-input");
-var nameEl = document.getElementById("high-score");
-var submitBtn = document.getElementById("submit-high-score");
-var restartBtn = document.getElementById("restart");
-var clearBtn = document.getElementById("clear-score");
-var scoreList = document.getElementById("score-list");
-var highScoreBtn = document.getElementById("scores-button")
+let starterBtn = document.getElementById("start");
+let containerEl = document.getElementById("container");
+let questionEl = document.getElementById("question");
+let answerEl = document.getElementById("buttons");
+let timeEl = document.getElementById("time-display");
+let hiddenTimerEl = document.getElementById("timer");
+let inputEl = document.getElementById("high-score-input");
+let nameEl = document.getElementById("high-score");
+let submitBtn = document.getElementById("submit-high-score");
+let restartBtn = document.getElementById("restart");
+let clearBtn = document.getElementById("clear-score");
+let scoreList = document.getElementById("score-list");
+let highScoreBtn = document.getElementById("scores-button")
 
 // the if statements are checking if the buttons pressed or not, or else it would create errors
 
@@ -52,7 +52,7 @@ if (starterBtn) {
 
 
 // questions array
-var questions = [
+let questions = [
 { question: "Who is Iron Man?", 
     answers: ['Tony Stark', 'Tom Cruise', 'Natasha Romanov', 'Deadpool'], 
     correct: 'Tony Stark'
@@ -73,17 +73,17 @@ var questions = [
      correct: 'Vision'
 }]
 
-var answers = questions.answers; 
+let answers = questions.answers; 
 // setting the index for question to 0 so the loop can add the question to it
-var questionIndex = 0;
+let questionIndex = 0;
 // setting timer
-var timeLeft = 100;
-var timeCount;
+let timeLeft = 100;
+let timeCount;
 
 // rendering the scores
 function renderScore() {
     if (scoreList) {
-        var listScores = [];
+        let listScores = [];
         
         if(localStorage.getItem("highScore")) {
             listScores = JSON.parse(localStorage.getItem("highScore"))
@@ -92,7 +92,7 @@ function renderScore() {
         scoreList.innerHTML = "";
 
         listScores.forEach(function(score) {
-            var listItemEl = document.createElement("li");
+            let listItemEl = document.createElement("li");
             listItemEl.textContent = JSON.stringify(score);
             scoreList.appendChild(listItemEl);
         })
@@ -103,21 +103,20 @@ function renderScore() {
 
 // setting the scores to localstorage
 function score() {
-    var scores = [];
+    let scores = [];
 
     if(localStorage.getItem("highScore")) {
         scores = JSON.parse(localStorage.getItem("highScore"));
     }
 
-    var initial = nameEl.value;
-    var remainingTime = JSON.stringify(timeLeft);
-    var highScores = {
-        name: initial,
+    let savedName = nameEl.value;
+    let remainingTime = JSON.stringify(timeLeft);
+    let highScores = {
+        name: savedName,
         score: remainingTime,
     }
     scores.push(highScores);
-    var stringOfScores = JSON.stringify(scores)
-    localStorage.setItem("highScore", stringOfScores);
+    localStorage.setItem("highScore", JSON.stringify(scores));
     renderScore();
 }
 
@@ -126,7 +125,6 @@ function endGame() {
     containerEl.classList.add("hide");
     hiddenTimerEl.classList.add("hide");
     inputEl.classList.remove("hide");
-    
 }
 
 // the timer function
@@ -174,9 +172,9 @@ function startGame() {
     hiddenTimerEl.classList.remove("hide");
     questionEl.textContent = questions[questionIndex].question;
     answerEl.innerHTML = "";
-    for (var i = 0; i < questions[questionIndex].answers.length; i++) {
-        var newAnswer = questions[questionIndex].answers[i];
-        var answerButton = document.createElement("button");
+    for (let i = 0; i < questions[questionIndex].answers.length; i++) {
+        let newAnswer = questions[questionIndex].answers[i];
+        let answerButton = document.createElement("button");
         answerButton.classList.add("button")
         answerButton.textContent = newAnswer;
         answerButton.addEventListener("click", selectedAnswer);
