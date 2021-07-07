@@ -19,7 +19,7 @@ if (highScoreBtn) {
     highScoreBtn.addEventListener("click", function() {
         window.location.assign("highscores.html")
     })
-}
+};
 
 if (submitBtn) {
     submitBtn.addEventListener("click", function(event) {
@@ -28,7 +28,7 @@ if (submitBtn) {
         renderScore();
         window.location.assign("highscores.html");
     });
-}
+};
 
 if (restartBtn) {
     restartBtn.addEventListener("click", function() {
@@ -48,7 +48,7 @@ if (starterBtn) {
         startGame();
         timer();    
     });
-}
+};
 
 
 // questions array
@@ -71,7 +71,7 @@ let questions = [
 { question: "On Avengers:Age of Ultron, who is lifting up the Mjolnir except Thor himself?",
      answers: [ 'Ultron', 'Iron Man', 'Captain America', 'Vision'], 
      correct: 'Vision'
-}]
+}];
 
 let answers = questions.answers; 
 // setting the index for question to 0 so the loop can add the question to it
@@ -89,16 +89,19 @@ function renderScore() {
             listScores = JSON.parse(localStorage.getItem("highScore"))
         };
 
-        scoreList.innerHTML = "";
+        scoreList.innerHTML = ''
 
         listScores.forEach(function(score) {
+            console.log(score)
             let listItemEl = document.createElement("li");
-            listItemEl.textContent = JSON.stringify(score);
+            let name = score.name;
+            let highScore = score.score;
+            listItemEl.textContent = `Name: ${name} | Score: ${highScore}`
             scoreList.appendChild(listItemEl);
         })
 
     }   
-}
+};
 
 
 // setting the scores to localstorage
@@ -118,14 +121,14 @@ function score() {
     scores.push(highScores);
     localStorage.setItem("highScore", JSON.stringify(scores));
     renderScore();
-}
+};
 
 // function when game ends
 function endGame() {
     containerEl.classList.add("hide");
     hiddenTimerEl.classList.add("hide");
     inputEl.classList.remove("hide");
-}
+};
 
 // the timer function
 function timer() {
@@ -144,7 +147,7 @@ function timer() {
         };
         
     }, 1000) 
-}
+};
 
 // checking to see if the questions is true or not
 function selectedAnswer(event) {
@@ -162,7 +165,7 @@ function selectedAnswer(event) {
        clearInterval(timeCount);
        endGame();    
    }
-}
+};
 
 // starting the game
 function startGame() {
@@ -180,10 +183,7 @@ function startGame() {
         answerButton.addEventListener("click", selectedAnswer);
         answerEl.appendChild(answerButton);
     }
-    
-}
-
-
+};
 
 function init() {
     renderScore();
