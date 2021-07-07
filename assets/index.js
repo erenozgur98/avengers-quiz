@@ -92,15 +92,13 @@ function renderScore() {
         scoreList.innerHTML = ''
 
         listScores.forEach(function(score) {
-            console.log(score)
             let listItemEl = document.createElement("li");
             let name = score.name;
             let highScore = score.score;
             listItemEl.textContent = `Name: ${name} | Score: ${highScore}`
             scoreList.appendChild(listItemEl);
-        })
-
-    }   
+        });
+    };
 };
 
 
@@ -110,14 +108,14 @@ function score() {
 
     if(localStorage.getItem("highScore")) {
         scores = JSON.parse(localStorage.getItem("highScore"));
-    }
+    };
 
     let savedName = nameEl.value;
     let remainingTime = JSON.stringify(timeLeft);
     let highScores = {
         name: savedName,
         score: remainingTime,
-    }
+    };
     scores.push(highScores);
     localStorage.setItem("highScore", JSON.stringify(scores));
     renderScore();
